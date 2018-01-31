@@ -89,7 +89,7 @@ export default class Widget extends Component {
     setCookie = () => {
         let date = new Date();
         let expirationTime = parseInt(this.props.conf.cookieExpiration);
-        date.setTime(date.getTime()+(expirationTime*30*24*60*60*1000));
+        date.setTime(date.getTime()+(expirationTime*24*60*60*1000));
         let expires = "; expires="+date.toGMTString();
         document.cookie = "chatwasopened=1"+expires+"; path=/";
     }
