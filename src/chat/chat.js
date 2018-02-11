@@ -60,14 +60,14 @@ export default class Chat extends Component {
                     this.writeToMessages({
                         text: this.props.conf.autoResponse,
                         from: 'admin'});
-                }, 500);
+                }, 30 * 1000);
 
                 this.autoResponseTimer = setTimeout(() => {
                     this.writeToMessages({
                         text: this.props.conf.autoNoResponse,
                         from: 'admin'});
                     this.autoResponseState = 'canceled';
-                }, 60 * 1000);
+                }, 120 * 1000);
                 this.autoResponseState = 'set';
             }
         }
