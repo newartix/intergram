@@ -50,7 +50,7 @@ export default class Chat extends Component {
                        onKeyPress={this.handleKeyPress}/>
 
                 <a class="banner" href="https://github.com/idoco/intergram" target="_blank">
-                    Спасибо <b>Intergram</b>&nbsp;
+                    Спасибо <b>idoco</b> и <b>heroku</b>&nbsp;
                 </a>
             </div>
         );
