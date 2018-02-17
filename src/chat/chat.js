@@ -23,11 +23,12 @@ export default class Chat extends Component {
         this.socket = io.connect();
         this.socket.on('connect', () => {
             this.socket.emit('register', {chatId: this.props.chatId, userId: this.props.userId });
-            try { 
-                if(this.props.conf.doVisitNotice)
+            //try { 
+                if(this.props.conf.doVisitNotice) {
                     this.socket.send({text: '_visit_', from: 'visitor', visitorName: this.props.conf.visitorName}); 
-            }
-            catch(e) {}
+                }
+            //}
+            //catch(e) {}
         });
         this.socket.on(this.props.chatId, this.incomingMessage);
         this.socket.on(this.props.chatId+'-'+this.props.userId, this.incomingMessage);
