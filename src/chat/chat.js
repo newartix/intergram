@@ -25,7 +25,7 @@ export default class Chat extends Component {
             this.socket.emit('register', {chatId: this.props.chatId, userId: this.props.userId });
             try { 
                 if(this.props.conf.doVisitNotice)
-                    this.socket.send({'_visit_', from: 'visitor', visitorName: this.props.conf.visitorName}); 
+                    this.socket.send({text: '_visit_', from: 'visitor', visitorName: this.props.conf.visitorName}); 
             }
             catch(e) {}
         });
