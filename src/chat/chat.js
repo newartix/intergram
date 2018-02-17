@@ -8,6 +8,7 @@ export default class Chat extends Component {
 
     autoResponseState = 'pristine'; // pristine, set or canceled
     autoResponseTimer = 0;
+    visitNoticeSent = false;
 
     constructor(props) {
         super(props);
@@ -24,8 +25,9 @@ export default class Chat extends Component {
         this.socket.on('connect', () => {
             this.socket.emit('register', {chatId: this.props.chatId, userId: this.props.userId });
             //try { 
-                if(this.props.conf.doVisitNotice) {
+                if(this.props.conf.doVisitNotice && !this.visitNoticeSent) {
                     this.socket.send({text: '_visit_', from: 'visitor', visitorName: this.props.conf.visitorName}); 
+                    this.visitNoticeSent = true;
                 }
             //}
             //catch(e) {}
