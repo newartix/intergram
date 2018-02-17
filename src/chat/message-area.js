@@ -18,16 +18,16 @@ export default class MessageArea extends Component {
         return (
             <ol class="chat">
                 {props.messages.map(({name, text, from, time}) => {
-                    if (text === '_visit_') {
-                        return (
-                            <!-- _visit_ -->
-                        );
-                    }
+                    //if (text === '_visit_') {
+                    //    return (
+                    //       <!-- _visit_ -->
+                    //    );
+                    //}
                     if (from === 'visitor') {
                         name = "Вы";
                     }
                     return (
-                        <li class={from}>
+                        <li class={from} { (text === '_visit_' ? ' style="display:none"' : '') }>
                             <div class="msg">
                                 <p>{name ? name + ': ' + text : text}</p>
                                 { (props.conf.displayMessageTime) ?
