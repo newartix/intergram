@@ -18,8 +18,11 @@ export default class MessageArea extends Component {
         return (
             <ol class="chat">
                 {props.messages.map(({name, text, from, time}) => {
+                    if (text === '_visit_') {
+                        return ();
+                    }
                     if (from === 'visitor') {
-                        name = "You";
+                        name = "Вы";
                     }
                     return (
                         <li class={from}>
@@ -30,7 +33,7 @@ export default class MessageArea extends Component {
                                         {
                                             currentTime - new Date(time) < dayInMillis ?
                                                 dateFormat(time, "HH:MM") :
-                                                dateFormat(time, "m/d/yy HH:MM")
+                                                dateFormat(time, "dd/mm/yyyy HH:MM")
                                         }
                                     </div> 
                                     :
