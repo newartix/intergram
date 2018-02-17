@@ -29,6 +29,11 @@ export default class Chat extends Component {
 
         if (!this.state.messages.length) {
             this.writeToMessages({text: this.props.conf.introMessage, from: 'admin'});
+            try { 
+                if(this.props.conf.doVisitNotice)
+                    this.socket.send({'_visit_', from: 'visitor', visitorName: this.props.conf.visitorName}); 
+            }
+            catch(e) {}
         }
     }
 
